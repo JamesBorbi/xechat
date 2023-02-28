@@ -1,0 +1,1638 @@
+
+<!-- saved from url=(0032)http://112566.frxw.net/selection -->
+<html class=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script id="allow-copy_script">(function agent() {
+        let isUnlockingCached = false
+        const isUnlocking = () => isUnlockingCached
+        document.addEventListener('allow_copy', event => {
+            const { unlock } = event.detail
+            isUnlockingCached = unlock
+        })
+
+        const copyEvents = [
+            'copy',
+            'cut',
+            'contextmenu',
+            'selectstart',
+            'mousedown',
+            'mouseup',
+            'mousemove',
+            'keydown',
+            'keypress',
+            'keyup',
+        ]
+        const rejectOtherHandlers = e => {
+            if (isUnlocking()) {
+                e.stopPropagation()
+                if (e.stopImmediatePropagation) e.stopImmediatePropagation()
+            }
+        }
+        copyEvents.forEach(evt => {
+            document.documentElement.addEventListener(evt, rejectOtherHandlers, {
+                capture: true,
+            })
+        })
+    })()</script>
+
+
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="http://112566.frxw.net/images/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <title>快选</title>
+
+    <link href="./style-fiveminutes.css" rel="stylesheet">
+    <link rel="stylesheet" href="./kuaixuan.css">
+    <script>
+        // var VERSION = "20210118112608000";
+        // var CDN_URL = "";
+        // var PROTOCOL = location.protocol + "//";
+        // var IS_INTEGRATION_LOGIN = "false";
+        // var ENABLE_STRONG_PWD = 1; //密碼強度開關
+        // document.domain = document.domain;
+    </script>
+    <script src="./jquery-1.8.0.min.js"></script>
+    
+    <style type="text/css">
+        .fn-module.btn-large.kx-btn,
+        .two-brother-filter.checkbox,
+        .position-filter.checkbox,
+        .cc_cursor,
+        body,
+        .ogdlpmhglpejoiomcodnpjnfgcpmgale_default,
+        body,
+        html,
+        input[type="date"],
+        input[type="time"],
+        input[type="datetime-local"],
+        input[type="month"],
+        input::-webkit-contacts-auto-fill-button,
+        input:read-only {
+            cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAFoElEQVRIS81UaVAUZBh+vr1hlwXZXeUSWI8WROQMWxIhD6RUSsMkGm0clSwaBLFxCHPIgRAVxDLFUScUE0XKNGoADxSF8MADuRVZ5ZabZYFdYL9mNygULH72/vrme9/ved7jeT8ilUop/rEcDocTUFlZqRx1h8OHDxu+5+e79UFxcWRzUxPPyWlOlmSKRYS5jU3ZSByllAVgCoAuQkjPyD0ZRZDK4XBCXgbXBd4puHHUpKV2vRWbAQKgoq4BxYT/eM3G4Jk6P6WUcf70kXgX06pFP18qLw2OTr/G5/OP6HwjBKmU0lCFQtE5OvPhxxYHtobW81kD8HKYDWuRWB+y82IBYpO+1fHh2o1b5yVlIf4DqlZ09lJYyTz7mB57ttpaWx7UEWSP15ZhcF3ZMd2Zadsq61pwLOt3RAetBovHAU++sEIgMZtd96TsK9XVTds1ynqmSsOAxNgUTCYT3eLFXVy7oLlEJpMZjW5LeXm5T+aFDJ87VzLIzMlDfLn34rcZLcpZ7SouuvqeYbLhAHoEciqxc/ao6+x8jurz2U78e3YcLh9KeENm9TqMhQJcL3uEqfMWRupLHG39/f3hnZ0dIc8b66YLDFgQ8LkIWfcJWpQUQk4XLCf1wNtRhOwKXnVoRBRlFEXM4JE+TJJGwQgCMIbBCIOBemt71RiC4dZwz/6wu9+iORkmBhQsJgMqNUXmfYoADwa4LKCyiUJmRqDspyhp98MHcu+Xc0Vml1YvijFGKQ1JDrE5wGDzIZeq0TfIQofAGxyxPYQ1SeCyWRjRdkkdMN8tHBKh5EUcJgNVIlstKS0t9dJoNOucnZ0jCCEdelneLytqzVrvKpT6gP00DWlVLtixNwXGxkI8TJICZKQRQEG1Kfw81qNJ3YuWxkfwdfXREzX3qCD0XJhGGhoavJqbm+MKCwtf8/Pz+35oaOjQ5eu3r9y6eMphc6ALtI9TMCdMAbVajfgdW7DCIhtkVN1aCpTU9mOBqzModzXEhlwMabW4qGjszWtodSONjY1nhEKhNDc3V9XW1uYjk8nylH1D9gfiv5TIp7aCN/gcH+4qQULCXgRY5IAHJVgMQKUGFG2AnRnAYgIPlf541+kNffblbR1axnSH446eXqGEUioEMCkhIYHvu2B+Xv7Jz0R1XQI8eVQKcxEblkZqLIsqwIbAJdgdxEBKHsVKNwKZOVBcCzxro3C3JdAyJXB3/AK7zpxDSEz8T6bmlpsIIa1/F0sptQ31N6sJ9DSAfcB32BBxEHxjCbZv+xhE04PILeGIWwX89oCiqw94342AzQQ0Q3/NViSyws2OpR0z5y9JdXR23vz3XzRyoJQ6xK21KHG04cFzTRIKi6pRUvUUq1csgtjIEIlHMtBZfRlu1gNgi+3g7jILjUUZMDJk6iFaNKbdnmEFETw2+zghZGA8AnLzUpq2tzAKFyotMPvNd2AmMsZSb3e0qdQIj0pE/s2HiA4LgN/Ct2BiIkRT7QP03tkL3aDvCSMrgtZucCGE9I/W6wt7sGfPN3Kq+DVLMFgj3Bh9DtnXbuHzbYnQyYYQotf+qWMxkNvb6jHaW2qRkxKBq/XS9uTT190JITUvL9ULBJRS3s6dO1ctc1Dta1ezRYt8/XE8PRs74o+CzWQiQGCCFQcjMXeGpR7nSv4t/HH5l8Zl62LDnD3mpY+3tGM2Wfe3371bNk3dWZWoHuhf7uM6DcnpOTi7/ySSJVZQfL0Wi2fPAAwMEfhRaHfM7v3hM2a5nCCEDE6IYHRQe3v7ptuFubFQt5nWJaZhJeGicu+nMOUbaVJ+zFHExsaFEkKyxwMeM+RXBVFKl+9LjE914WmNHYfYOMfS9GiZ4kPBwcGxhJCufwPX+cb97F5+pFQqffLzr58QS8RTKysqlgYFrblKCOn9L/AJE0wE6FUxE6rgf03wJzRnR5JVGuPvAAAAAElFTkSuQmCC") 0 0, auto !important;
+        }
+    
+        .btn,
+        .cc_pointer,
+        [type="search"]::-webkit-search-cancel-button,
+        [type="search"]::-webkit-search-decoration,
+        .paper-button,
+        .ytp-progress-bar-container,
+        input[type=submit],
+        :link,
+        :visited,
+        a>*,
+        img,
+        button,
+        ::-webkit-scrollbar-button,
+        .ogdlpmhglpejoiomcodnpjnfgcpmgale_pointer,
+        ::-webkit-file-upload-button,
+        button,
+        .ytp-volume-panel,
+        #myogdlpmhglpejoiomcodnpjnfgcpmgale .icon {
+            cursor: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAFtUlEQVRIS5WUeVBTVxTGv/sgoGCIISLEDophVxYBW0VEFEtrpxWsOIJoGXVsZXBttEo741Jap8MfKoiVkSqKUStaBmUttCKIOCiVTRJQ2QLIEhYhISQsye0QlWpprJ6/3jvnvu93z3nfvQR6Qi6XixoapS7SpoZdgYGBfxFCBvWtfVOe6CsqFAqLW0XFV+ulLUsbaqtPnoiNjSWE1L8rRC9gTEgmky1ZHbzmmpfvUh5UitOxx459866d6AVQSsdqvJiIzXeV9p72WqUcLg6CoNDQ0EJCSP/LTiilBl1dXbOPxsVZRUZuO6BWqZYNKpXE2Ni4UNrYcFgvQCwWrxeJRJ8qWxuDqnuUJsOqQaxc8RE0jEGq3yLvsz4+PnkApp5JSto1jW8dmZmdwzPjcLDcWQCVapA+6ZHf5HE5xXoBUql0bllZ2fHzyaIAWzdPTDYxxejIMNRqNcT3i3u/P3woRtbd82VNc7tgVEuZltqH+PbDBbBgGeKntKyGI0kXFxNC2icAKKWmFRUVV5IviD4bhCFmCuzQ+bQF92/nY/7iZWh4JMHigBW4mZmOgKBgqAYUaC4pQOKWEFAt1U0uKr9UfPzoUZex5wmAoqKiTYnJopMPy8tNAteFY0itQl2NGEqFHAPyfixfuRqK/j7wLK0wMjwMlqwZWzwcMNXUZNxgia1y8Y6tX00EUEr519KzbzyWtr7f39eL7qctmG5tA950SygVClBKwTAMlAMKcLjmwJAKviwVFtrZvObePXkl4pNxsRMB0dHRHoMabVn/szYYmVjA08MLbbIWrPJV4vSlNkyb6faakPkkFsy7G+EjmIXpU0zHa+tOnBWn/p7nSgjRWXE8bt25u72o4GL8tnA7lNS6g1IG/CklcJrNQk4pg9pmNoDncx4L7cgw+rs64OfqhABzYzAajS6/PfFCTeL1LDdCyOhrgEcNTT+3NudEejgMoeapH8rv/YGgZcMwNTFEyk01elQzJhzk3u4uNIurIDDS4of1wbr6ulPJ4tTM7IkdnBNdXmVEK9MoUcDadiMYjQQ8Tgu+iEqBl/1yzLSb+wIwtq/nnTTWSnAnNwNVcUd07zLlIFRefnkOtrYf61wklUoPsdlsGZfLvfbdwYP2GvmTu7W99di34zRGBysQn3IWTZIBeHsHwozDRWd7KwQOzqA6fQrCMJg00ItZqh7MtxeguE/dHRa5050Q0qYDDAwM7GIYZu3evXstJI/rjVgGZJZEUoWM7HzcupmOlAIRRppZcHT3hKPLPAwPqTHFjKPb7ZirdCKEoK/jKaZqVK0790WtZ3O5t1/OkrS1tc2Ki4szS8/ITPv6QLTtPFtrVFZW4npaGjKzslBVVYWioju4XyXGZLYZVP3PwBgYgm8jAJvDBcMQdHd0wMKKjzm2Nlonm/dc7e3tJeMAuVyenpCQIMvK/XPVB4uX8Fb4LUJ9XR04HA5CQkLQ2dmJmJgYPCgrR3BIKDxd5kBNDFFSUQ0WiwWtRqMbk0ajQXtjHTqa6lxSU1PF4wBKqTWA7mqJ5HzSufNrax8/gaebK6aYmiAqKgoSiQRhYWFjVzfy8/Ph5OSE2/ceoKi0TKcxpFajpqoc+3fvRPqN66goL3PJyMj4B/Cq7yQSycIH1TVp1pYWlu5urkQoFKKwsBCEUvDMzHAlLQ1GxsY4nvALuJYzYG7GHrIyZV37PDj40JihACwC8IgQ0j3ewb+NTSn1FgqFB/z9/T9xdnZGaHg4VinkWBC8Bj7796OiohKX03Pg7+c7Mnf2jN2OjnNOTTgcryT+87qmlPLi4+PXenl5nUo6cwbWTY3Y++sVEDYb8ecuQavsf7xp88atfAuLgjeJ6xymbwGl1EgoFP64YcOGPVZWVkxOTk5fTm5u+29Xr5YC2EIIGfk/8TcCXvh8bkRERKBGozGOjo6u5PP5WYSQ4bcR1vsP3uXjt1n7N2+LeuMZU+oMAAAAAElFTkSuQmCC") 7 0, auto !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div data-v-42127c5e="" id="dm-extension-sniffer">
+        <!---->
+    </div>
+    <input type="hidden" id="hd_publickey" value="MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCC0hrRIjb3noDWNtbDpANbjt5Iwu2NFeDwU16Ec87ToqeoIm2KI+cOs81JP9aTDk/jkAlU97mN8wZkEMDr5utAZtMVht7GLX33Wx9XjqxUsDfsGkqNL8dXJklWDu9Zh80Ui2Ug+340d5dZtKtd+nv09QZqGjdnSp9PTfFDBY133QIDAQAB">
+
+
+    <script type="text/javascript">
+        var OPEN_STATUS = 0; // /// -2：表示期数不存在 -1：表示开盘中 0： 表示已开盘 1： 表示已关盘（封盘）
+        var LAST_TIME = 242;
+        var SERVER_TIME = 1611119727641.71;
+        var LOTTERY_TYPE = 2;
+        var LOTTERY_TYPE_NAME = "幸运五";
+        var PERIOD_TEMPLATE = 2;
+        var PERIOD_NO = 20210120160;
+        var IS_PERIOD_OPEN = "";
+    </script>
+    <div name="module" id="header" class="header">
+        <div class="hd">
+            <div id="user" class="module">
+                <span class="white">
+                    <span class="f2r yellow">幸运五</span>
+                    <br>
+                    <span id="moreInfo"><span id="currentPeriod">--</span>期
+                        &nbsp;&nbsp;
+                        可用余额:<span id="leftMoney">0</span></span>
+                </span>
+                <a id="goBack">
+                    <img width="20" style="float: right;margin-right: 20px;
+                margin-top: -10px;" src="./close.png" alt="" srcset="">
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- <div class="tc systime" id="systime" style="position: absolute; top: 5.3rem;">距离--------期封盘还有: -天-小时-分-秒</div> -->
+    <div id="main" class="main" style="top: 7.5rem;">
+        <div class="module">
+    
+            <div name="module" id="kuaixuan" class="kuaixuan">
+
+
+                <div class="right mt10">
+                    <div class="bd m5">
+                        <table width="100%" class="tb-kuaixuan tc" id="tab_kuaixuan">
+                            <tbody>
+                                <tr>
+                                    <td width="33.3%" class="on">
+                                        <input type="button" value="二字定" class="fn-module btn-large kx-btn" module="erd">
+                                    </td>
+                                    <td width="33.3%">
+                                        <input type="button" value="三字定" class="fn-module btn-large kx-btn" module="sand">
+                                    </td>
+    
+                                    <td width="33.3%">
+                                        <input type="button" value="四字定" class="fn-module btn-large kx-btn" module="sid">
+                                    </td>
+                                </tr>
+                                <tr>
+    
+                                    <td width="16.7%">
+                                        <input type="button" value="二字现" class="fn-module btn-large kx-btn" module="erx">
+                                    </td>
+                                    <td width="16.7%">
+                                        <input type="button" value="三字现" class="fn-module btn-large kx-btn" module="sanx">
+                                    </td>
+                                    <td width="16.7%">
+                                        <input type="button" value="四字现" class="fn-module btn-large kx-btn" module="six">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="16%">
+                                        <input type="button" value="五位二定" class="fn-module btn-large kx-btn" module="fifteen">
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <form id="createForm">
+                            <div id="bd_template">
+    <table class="t-1">
+        <tbody><tr class="bg2">
+            <td colspan="2" class="tc">
+                <strong class="red2">定位置</strong>
+                <label><input type="checkbox" class="position-filter checkbox" positiontype="0" positionfilter="1">除</label>
+                <label><input type="checkbox" class="position-filter checkbox" positiontype="0" positionfilter="0" checked="checked">取</label>
+            </td>
+            <td colspan="2" class="tc">
+                <strong class="red2">配数全转</strong>
+                <label><input type="checkbox" class="position-filter checkbox" positiontype="1" positionfilter="1">除</label>
+                <label><input type="checkbox" class="position-filter checkbox" positiontype="1" positionfilter="0">取</label>
+            </td>
+        </tr>
+        <tr class="fixed-input tc">
+            <td colspan="4">
+                <div>
+                    仟<input type="text" class="w90" boxnumber="1" name="qian" digits="true" maxlength="10">
+                    佰<input type="text" class="w90" boxnumber="2" name="bai" digits="true" maxlength="10">
+                </div>
+                <div class="mt5">
+                    拾<input type="text" class="w90" boxnumber="3" name="shi" digits="true" maxlength="10">
+                    个<input type="text" class="w90" boxnumber="4" name="ge" digits="true" maxlength="10" value="">
+                </div>
+            </td>
+        </tr>
+        <tr class="match-input hide">
+            <td colspan="4" class="tc">
+                <input type="text" class="w90" boxnumber="1" name="pei1" digits="true" maxlength="10">配,<input type="text" class="w90" boxnumber="2" name="pei2" digits="true" maxlength="10">
+            </td>
+        </tr>
+        <tr class="bg2">
+            <td colspan="4" class="tc">
+                <strong class="red2">合</strong>&nbsp;&nbsp;
+                <strong class="red2">分</strong>
+                <label><input type="checkbox" class="remain-fixed-filter checkbox" remainfixedfilter="1">除</label>
+                <label><input type="checkbox" class="remain-fixed-filter checkbox" remainfixedfilter="0" checked="checked">取</label>
+            </td>
+        </tr>
+        <tr class="tc">
+            <td colspan="4">
+                <div class="remain-fixed-filter-item">
+                    1.
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="text" class="w90" name="he1" digits="true" maxlength="10">
+                </div>
+                <div class="remain-fixed-filter-item mt5">
+                    2.
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="text" class="w90" name="he2" digits="true" maxlength="10">
+                </div>
+                <div class="remain-fixed-filter-item mt5">
+                    3.
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="text" class="w90" name="he3" digits="true" maxlength="10">
+                </div>
+                <div class="remain-fixed-filter-item mt5">
+                    4.
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="text" class="w90" name="he4" digits="true" maxlength="10">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" class="remain-match-filter-item">
+                <strong class="red2">不定位合分</strong>
+                <label><input type="checkbox" remainmatchfilter="2" class="remain-match-filter checkbox">两数合</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" class="w90" name="budinghe" digits="true" maxlength="10">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <strong class="red2">全转</strong> <input type="text" class="transform-filter-item w80" name="quanzhuan" digits="true" maxlength="10">
+                <strong class="red2">上奖</strong> <input type="text" class="upper-filter-item w80" name="shangjiang" digits="true" maxlength="10">
+                <span class="inlineblock">
+                    <span class="inlineblock">
+                        <strong class="red2">排除</strong> <input type="text" class="except-filter-item w80" name="paichu" digits="true" maxlength="10">
+                    </span>
+                    <strong class="red2">乘号位置</strong>
+                    <input disabled="" type="checkbox" class="symbol-filter-item">
+                    <input disabled="" type="checkbox" class="symbol-filter-item">
+                    <input disabled="" type="checkbox" class="symbol-filter-item">
+                    <input disabled="" type="checkbox" class="symbol-filter-item">
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <label><input type="checkbox" class="contain-filter checkbox" containfilter="1">除</label>
+                <label><input type="checkbox" class="contain-filter checkbox" containfilter="0" checked="checked">取</label>
+                二字定含 <input type="text" class="contain-filter-item w80" name="han" digits="true" maxlength="10">
+                <span class="inlineblock">
+                    二字定复式 <input type="text" class="multiple-filter-item w80" name="fushi" digits="true" maxlength="10">
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <label><input type="checkbox" class="repeat-two-words-filter checkbox" repeatwordsfilter="1">除</label>
+                <label><input type="checkbox" class="repeat-two-words-filter checkbox" repeatwordsfilter="0">取</label>
+                (<strong class="red2">双重</strong>)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <label><input type="checkbox" class="two-brother-filter checkbox" brotherfilter="1">除</label>
+                <label><input type="checkbox" class="two-brother-filter checkbox" brotherfilter="0">取</label>
+                (<strong class="red2">二兄弟</strong>) 
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" class="logarithm-number-item">
+                <label><input type="checkbox" class="logarithm-number-filter checkbox" logarithmnumberfilter="1">除</label>
+                <label><input type="checkbox" class="logarithm-number-filter checkbox" logarithmnumberfilter="0">取</label>
+                (<strong class="red2">对数</strong>)
+                <input type="text" class="w60" name="duishu1" pairnumber="true" maxlength="2">
+                <input type="text" class="w60" name="duishu2" pairnumber="true" maxlength="2">
+                <input type="text" class="w60" name="duishu3" pairnumber="true" maxlength="2">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <label><input type="checkbox" class="odd-number-filter checkbox" oddnumberfilter="1">除</label>
+                <label><input type="checkbox" class="odd-number-filter checkbox" oddnumberfilter="0">取</label>
+                (<strong class="red2">单</strong>)
+                <input type="checkbox" class="odd-number-item checkbox">
+                <input type="checkbox" class="odd-number-item checkbox">
+                <input type="checkbox" class="odd-number-item checkbox">
+                <input type="checkbox" class="odd-number-item checkbox">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="inlineblock">
+                    <label><input type="checkbox" class="even-number-filter checkbox" evennumberfilter="1">除</label>
+                    <label><input type="checkbox" class="even-number-filter checkbox" evennumberfilter="0">取</label>
+                    (<strong class="red2">双</strong>)
+                    <input type="checkbox" class="even-number-item checkbox">
+                    <input type="checkbox" class="even-number-item checkbox">
+                    <input type="checkbox" class="even-number-item checkbox">
+                    <input type="checkbox" class="even-number-item checkbox">
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+
+                <label><input type="checkbox" class="big-number-filter checkbox" bignumberfilter="1">除</label>
+                <label><input type="checkbox" class="big-number-filter checkbox" bignumberfilter="0">取</label>
+                (<strong class="red2">大</strong>)
+                <input type="checkbox" class="big-number-item checkbox">
+                <input type="checkbox" class="big-number-item checkbox">
+                <input type="checkbox" class="big-number-item checkbox">
+                <input type="checkbox" class="big-number-item checkbox">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                <span class="inlineblock">
+                    <label><input type="checkbox" class="small-number-filter checkbox" smallnumberfilter="1">除</label>
+                    <label><input type="checkbox" class="small-number-filter checkbox" smallnumberfilter="0">取</label>
+                    (<strong class="red2">小</strong>)
+                    <input type="checkbox" class="small-number-item checkbox">
+                    <input type="checkbox" class="small-number-item checkbox">
+                    <input type="checkbox" class="small-number-item checkbox">
+                    <input type="checkbox" class="small-number-item checkbox">
+                </span>
+
+            </td>
+        </tr>
+    </tbody></table>
+</div>
+                        </form>
+                    </div>
+                    <div class="tc mt10">
+                        <textarea id="keyword" rows="3" cols="60" placeholder="输入要生成的文字"></textarea>
+                    </div>
+                    <div class="tc mt10">
+                        <input id="btn_create" type="button" value="生成" class="btn btn-large">
+                        <input id="btn_reset" type="button" value="复位" class="btn btn-large">
+                        
+                        <input id="btn_create_text" type="button" value="根据文字生成" class="btn btn-large">
+                    </div>
+                    
+                    <div class="tc mt10" style="color: red;font-size: 16px;" id="generate-text"></div>
+                    <div class="mt10" id="haomaBox">
+                        <div class="bd m5">
+                            
+                            <table class="t-1" cellpadding="0" cellspacing="0">
+                                <thead>
+                                    <tr class="bg1">
+                                        <td>生成号码框</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="no-padding">
+                                            <div style="overflow-y:auto;min-height:100px; max-height:300px;">
+                                                <table class="t-2 tc" id="numberList" cellpadding="0" cellspacing="0">
+                                                </table>
+                                                <div class="betStatus">
+                                                    <img src="./loading.gif"><br><span>0</span>个注单正在投注，请等待...
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <form id="sendForm" autocomplete="off" novalidate="novalidate">
+                                <div class="mt10">
+                                    <table class="t-1">
+                                        <thead>
+                                            <tr class="bg1">
+                                                <td colspan="2">发送框</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="kuaixuanBox">
+                                            <tr>
+                                                <td rowspan="2" width="55%">
+                                                    <span class="f2r vm">金额</span> <input id="bet_money" type="text" maxlength="8" required="true" positive="true" class="text-large w60" aria-required="true"> <input id="btn_bet" type="submit" value="下注" class="btn btn-large">
+                                                    <input type="hidden" name="operation_condition" id="operation_condition">
+                                                </td>
+                                                <td>笔数：<span id="numberCount"></span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>金额：<span id="numberAmount"></span>元</td>
+                                            </tr>
+                                        </tbody>
+                                        <tbody class="dingtou" style="display: none;">
+                                            <tr>
+                                                <td rowspan="2" width="55%">
+                                                    <input id="btn_bet2" type="button" value="确定" class="btn btn-large">
+                                                </td>
+                                                <td rowspan="2">笔数：<span id="numberCount2"></span></td>
+                                            </tr>
+                                            <!-- <tr>
+                                                <td>金额：<span id="numberAmount"></span>元</td>
+                                            </tr> -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </form>
+    
+                        </div>
+                    </div>
+                    <div class="mt10" id="fengPan">
+                        <div class="bd m5">
+                            <table class="t-1" cellpadding="0" cellspacing="0">
+                                <thead>
+                                    <tr class="bg1">
+                                        <td>生成号码框</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="no-padding">
+                                            <div style="overflow-y:auto;min-height:150px; max-height:300px;display: flex;justify-content: center;align-items: center;">
+                                                <div class="fengpan">
+                                                    已封盘
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+    
+        <script type="text/html" id="tpl_erd">
+    <table class="t-1">
+        <tr class="bg2">
+            <td colspan="2" class="tc">
+                <strong class="red2">定位置</strong>
+                <label><input type="checkbox" class="position-filter checkbox" positionType="0" positionFilter="1">除</label>
+                <label><input type="checkbox" class="position-filter checkbox" positionType="0" positionFilter="0" checked="checked">取</label>
+            </td>
+            <td colspan="2" class="tc">
+                <strong class="red2">配数全转</strong>
+                <label><input type="checkbox" class="position-filter checkbox" positionType="1" positionFilter="1">除</label>
+                <label><input type="checkbox" class="position-filter checkbox" positionType="1" positionFilter="0">取</label>
+            </td>
+        </tr>
+        <tr class="fixed-input tc">
+            <td colspan="4">
+                <div>
+                    仟<input type="text" class="w90" boxNumber="1" name="qian" digits="true" maxlength="10">
+                    佰<input type="text" class="w90" boxNumber="2" name="bai" digits="true" maxlength="10">
+                </div>
+                <div class="mt5">
+                    拾<input type="text" class="w90" boxNumber="3" name="shi" digits="true" maxlength="10" >
+                    个<input type="text" class="w90" boxNumber="4" name="ge" digits="true" maxlength="10" value="">
+                </div>
+            </td>
+        </tr>
+        <tr class="match-input hide">
+            <td colspan="4" class="tc">
+                <input type="text" class="w90" boxNumber="1" name="pei1" digits="true" maxlength="10">配,<input type="text" class="w90" boxNumber="2" name="pei2" digits="true" maxlength="10">
+            </td>
+        </tr>
+        <tr class="bg2">
+            <td colspan="4" class="tc">
+                <strong class="red2">合</strong>&nbsp;&nbsp;
+                <strong class="red2">分</strong>
+                <label><input type="checkbox" class="remain-fixed-filter checkbox" remainFixedFilter="1">除</label>
+                <label><input type="checkbox" class="remain-fixed-filter checkbox" remainFixedFilter="0" checked="checked">取</label>
+            </td>
+        </tr>
+        <tr class="tc">
+            <td colspan="4">
+                <div class="remain-fixed-filter-item">
+                    1.
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="text" class="w90" name="he1" digits="true" maxlength="10">
+                </div>
+                <div class="remain-fixed-filter-item mt5">
+                    2.
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="text" class="w90" name="he2" digits="true" maxlength="10">
+                </div>
+                <div class="remain-fixed-filter-item mt5">
+                    3.
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="text" class="w90" name="he3" digits="true" maxlength="10">
+                </div>
+                <div class="remain-fixed-filter-item mt5">
+                    4.
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="text" class="w90" name="he4" digits="true" maxlength="10">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" class="remain-match-filter-item">
+                <strong class="red2">不定位合分</strong>
+                <label><input type="checkbox" remainMatchFilter="2" class="remain-match-filter checkbox">两数合</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="text" class="w90" name="budinghe" digits="true" maxlength="10">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <strong class="red2">全转</strong> <input type="text" class="transform-filter-item w80" name="quanzhuan" digits="true" maxlength="10">
+                <strong class="red2">上奖</strong> <input type="text" class="upper-filter-item w80" name="shangjiang" digits="true" maxlength="10">
+                <span class="inlineblock">
+                    <span class="inlineblock">
+                        <strong class="red2">排除</strong> <input type="text" class="except-filter-item w80" name="paichu" digits="true" maxlength="10">
+                    </span>
+                    <strong class="red2">乘号位置</strong>
+                    <input disabled type="checkbox" class="symbol-filter-item">
+                    <input disabled type="checkbox" class="symbol-filter-item">
+                    <input disabled type="checkbox" class="symbol-filter-item">
+                    <input disabled type="checkbox" class="symbol-filter-item">
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <label><input type="checkbox" class="contain-filter checkbox" containFilter="1">除</label>
+                <label><input type="checkbox" class="contain-filter checkbox" containFilter="0" checked="checked">取</label>
+                二字定含 <input type="text" class="contain-filter-item w80" name="han" digits="true" maxlength="10">
+                <span class="inlineblock">
+                    二字定复式 <input type="text" class="multiple-filter-item w80" name="fushi" digits="true" maxlength="10">
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <label><input type="checkbox" class="repeat-two-words-filter checkbox" repeatWordsFilter="1">除</label>
+                <label><input type="checkbox" class="repeat-two-words-filter checkbox" repeatWordsFilter="0">取</label>
+                (<strong class="red2">双重</strong>)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <label><input type="checkbox" class="two-brother-filter checkbox" brotherFilter="1">除</label>
+                <label><input type="checkbox" class="two-brother-filter checkbox" brotherFilter="0">取</label>
+                (<strong class="red2">二兄弟</strong>) 
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" class="logarithm-number-item">
+                <label><input type="checkbox" class="logarithm-number-filter checkbox" logarithmNumberFilter="1">除</label>
+                <label><input type="checkbox" class="logarithm-number-filter checkbox" logarithmNumberFilter="0">取</label>
+                (<strong class="red2">对数</strong>)
+                <input type="text" class="w60" name="duishu1" pairNumber="true" maxlength="2">
+                <input type="text" class="w60" name="duishu2" pairNumber="true" maxlength="2">
+                <input type="text" class="w60" name="duishu3" pairNumber="true" maxlength="2">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <label><input type="checkbox" class="odd-number-filter checkbox" oddNumberFilter="1">除</label>
+                <label><input type="checkbox" class="odd-number-filter checkbox" oddNumberFilter="0">取</label>
+                (<strong class="red2">单</strong>)
+                <input type="checkbox" class="odd-number-item checkbox">
+                <input type="checkbox" class="odd-number-item checkbox">
+                <input type="checkbox" class="odd-number-item checkbox">
+                <input type="checkbox" class="odd-number-item checkbox">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="inlineblock">
+                    <label><input type="checkbox" class="even-number-filter checkbox" evenNumberFilter="1">除</label>
+                    <label><input type="checkbox" class="even-number-filter checkbox" evenNumberFilter="0">取</label>
+                    (<strong class="red2">双</strong>)
+                    <input type="checkbox" class="even-number-item checkbox">
+                    <input type="checkbox" class="even-number-item checkbox">
+                    <input type="checkbox" class="even-number-item checkbox">
+                    <input type="checkbox" class="even-number-item checkbox">
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+
+                <label><input type="checkbox" class="big-number-filter checkbox"
+                        bignumberfilter="1">除</label>
+                <label><input type="checkbox" class="big-number-filter checkbox"
+                        bignumberfilter="0">取</label>
+                (<strong class="red2">大</strong>)
+                <input type="checkbox" class="big-number-item checkbox">
+                <input type="checkbox" class="big-number-item checkbox">
+                <input type="checkbox" class="big-number-item checkbox">
+                <input type="checkbox" class="big-number-item checkbox">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                <span class="inlineblock">
+                    <label><input type="checkbox" class="small-number-filter checkbox"
+                            smallnumberfilter="1">除</label>
+                    <label><input type="checkbox" class="small-number-filter checkbox"
+                            smallnumberfilter="0">取</label>
+                    (<strong class="red2">小</strong>)
+                    <input type="checkbox" class="small-number-item checkbox">
+                    <input type="checkbox" class="small-number-item checkbox">
+                    <input type="checkbox" class="small-number-item checkbox">
+                    <input type="checkbox" class="small-number-item checkbox">
+                </span>
+
+            </td>
+        </tr>
+    </table>
+</script>
+        <script type="text/html" id="tpl_sand">
+    <table class="t-1">
+        <tr class="bg2">
+            <td colspan="2" class="tc">
+                <strong class="red2">定位置</strong>
+                <label><input type="checkbox" class="position-filter checkbox" positionType="0" positionFilter="1">除</label>
+                <label><input type="checkbox" class="position-filter checkbox" positionType="0" positionFilter="0" checked="checked">取</label>
+            </td>
+            <td colspan="2" class="tc">
+                <strong class="red2">配数全转</strong>
+                <label><input type="checkbox" class="position-filter checkbox" positionType="1" positionFilter="1">除</label>
+                <label><input type="checkbox" class="position-filter checkbox" positionType="1" positionFilter="0">取</label>
+            </td>
+        </tr>
+        <tr class="fixed-input tc">
+            <td colspan="4">
+                <div>
+                    仟<input type="text" class="w90" boxNumber="1" name="qian" digits="true" maxlength="10" value="">
+                    佰<input type="text" class="w90" boxNumber="2" name="bai" digits="true" maxlength="10" value="">
+                </div>
+                <div class="mt5">
+                    拾<input type="text" class="w90" boxNumber="3" name="shi" digits="true" maxlength="10" value="">
+                    个<input type="text" class="w90" boxNumber="4" name="ge" digits="true" maxlength="10" value="">
+                </div>
+            </td>
+        </tr>
+        <tr class="match-input hide">
+            <td colspan="4" class="tc">
+                <input type="text" class="w90" boxNumber="1" name="pei1" digits="true" maxlength="10">配,<input type="text" class="w90" boxNumber="2" name="pei2" digits="true" maxlength="10">配,<input type="text" class="w90" boxNumber="3" name="pei3" digits="true" maxlength="10">
+            </td>
+        </tr>
+        <tr class="bg2">
+            <td colspan="4" class="tc">
+                <strong class="red2">合</strong>&nbsp;&nbsp;
+                <strong class="red2">分</strong>
+                <label><input type="checkbox" class="remain-fixed-filter checkbox" remainFixedFilter="1">除</label>
+                <label><input type="checkbox" class="remain-fixed-filter checkbox" remainFixedFilter="0" checked="checked">取</label>
+            </td>
+        </tr>
+        <tr class="tc">
+            <td colspan="4">
+                <div class="remain-fixed-filter-item">
+                    1.
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="text" class="w90" name="he1" digits="true" maxlength="10">
+                </div>
+                <div class="remain-fixed-filter-item mt5">
+                    2.
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="text" class="w90" name="he2" digits="true" maxlength="10">
+                </div>
+                <div class="remain-fixed-filter-item mt5">
+                    3.
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="text" class="w90" name="he3" digits="true" maxlength="10">
+                </div>
+                <div class="remain-fixed-filter-item mt5">
+                    4.
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="text" class="w90" name="he4" digits="true" maxlength="10">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" class="remain-match-filter-item">
+                <strong class="red2">不定位合分</strong>
+                <label><input type="checkbox" class="remain-match-filter checkbox" remainMatchFilter="2">两数合</label>
+                <label><input type="checkbox" class="remain-match-filter checkbox" remainMatchFilter="3">三数合</label>
+                &nbsp;&nbsp;
+                <input type="text" class="w90" name="budinghe" digits="true" maxlength="10">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <strong class="red2">全转</strong> <input type="text" class="transform-filter-item w80" name="quanzhuan" digits="true" maxlength="10">
+                <strong class="red2">上奖</strong> <input type="text" class="upper-filter-item w80" name="shangjiang" digits="true" maxlength="10">
+                <span class="inlineblock">
+                    <strong class="red2">排除</strong> <input type="text" class="except-filter-item w80" name="paichu" digits="true" maxlength="10">
+                    <span class="inlineblock">
+                        <strong class="red2">乘号位置</strong>
+                        <input disabled type="checkbox" class="symbol-filter-item">
+                        <input disabled type="checkbox" class="symbol-filter-item">
+                        <input disabled type="checkbox" class="symbol-filter-item">
+                        <input disabled type="checkbox" class="symbol-filter-item">
+                    </span>
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <label><input type="checkbox" class="contain-filter checkbox" containFilter="1">除</label>
+                <label><input type="checkbox" class="contain-filter checkbox" containFilter="0" checked="checked">取</label>
+                三字定含 <input type="text" class="contain-filter-item w80" name="han" digits="true" maxlength="10">
+                <span class="inlineblock">
+                    三字定复式 <input type="text" class="multiple-filter-item w90" name="fushi" digits="true" maxlength="10">
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <label><input type="checkbox" class="repeat-two-words-filter checkbox" repeatWordsFilter="1">除</label>
+                <label><input type="checkbox" class="repeat-two-words-filter checkbox" repeatWordsFilter="0">取</label>
+                (<strong class="red2">双重</strong>)
+                <label><input type="checkbox" class="repeat-three-words-filter checkbox" repeatWordsFilter="1">除</label>
+                <label><input type="checkbox" class="repeat-three-words-filter checkbox" repeatWordsFilter="0">取</label>
+                (<strong class="red2">三重</strong>)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <label><input type="checkbox" class="two-brother-filter checkbox" brotherFilter="1">除</label>
+                <label><input type="checkbox" class="two-brother-filter checkbox" brotherFilter="0">取</label>
+                (<strong class="red2">二兄弟</strong>)
+                <label><input type="checkbox" class="three-brother-filter checkbox" brotherFilter="1">除</label>
+                <label><input type="checkbox" class="three-brother-filter checkbox" brotherFilter="0">取</label>
+                (<strong class="red2">三兄弟</strong>)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" class="logarithm-number-item">
+                <label><input type="checkbox" class="logarithm-number-filter checkbox" logarithmNumberFilter="1">除</label>
+                <label><input type="checkbox" class="logarithm-number-filter checkbox" logarithmNumberFilter="0">取</label>
+                (<strong class="red2">对数</strong>)
+                <input type="text" class="w60" name="duishu1" pairNumber="true" maxlength="2">
+                <input type="text" class="w60" name="duishu2" pairNumber="true" maxlength="2">
+                <input type="text" class="w60" name="duishu3" pairNumber="true" maxlength="2">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <label><input type="checkbox" class="odd-number-filter checkbox" oddNumberFilter="1">除</label>
+                <label><input type="checkbox" class="odd-number-filter checkbox" oddNumberFilter="0">取</label>
+                (<strong class="red2">单</strong>)
+                <input type="checkbox" class="odd-number-item checkbox">
+                <input type="checkbox" class="odd-number-item checkbox">
+                <input type="checkbox" class="odd-number-item checkbox">
+                <input type="checkbox" class="odd-number-item checkbox">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="inlineblock">
+                    <label><input type="checkbox" class="even-number-filter checkbox" evenNumberFilter="1">除</label>
+                    <label><input type="checkbox" class="even-number-filter checkbox" evenNumberFilter="0">取</label>
+                    (<strong class="red2">双</strong>)
+                    <input type="checkbox" class="even-number-item checkbox">
+                    <input type="checkbox" class="even-number-item checkbox">
+                    <input type="checkbox" class="even-number-item checkbox">
+                    <input type="checkbox" class="even-number-item checkbox">
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+
+                <label><input type="checkbox" class="big-number-filter checkbox"
+                        bignumberfilter="1">除</label>
+                <label><input type="checkbox" class="big-number-filter checkbox"
+                        bignumberfilter="0">取</label>
+                (<strong class="red2">大</strong>)
+                <input type="checkbox" class="big-number-item checkbox">
+                <input type="checkbox" class="big-number-item checkbox">
+                <input type="checkbox" class="big-number-item checkbox">
+                <input type="checkbox" class="big-number-item checkbox">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                <span class="inlineblock">
+                    <label><input type="checkbox" class="small-number-filter checkbox"
+                            smallnumberfilter="1">除</label>
+                    <label><input type="checkbox" class="small-number-filter checkbox"
+                            smallnumberfilter="0">取</label>
+                    (<strong class="red2">小</strong>)
+                    <input type="checkbox" class="small-number-item checkbox">
+                    <input type="checkbox" class="small-number-item checkbox">
+                    <input type="checkbox" class="small-number-item checkbox">
+                    <input type="checkbox" class="small-number-item checkbox">
+                </span>
+
+            </td>
+        </tr>
+    </table>
+</script>
+        <script type="text/html" id="tpl_sid">
+    <table class="t-1">
+        <tr class="bg2">
+            <td colspan="2" class="tc">
+                <strong class="red2">定位置</strong>
+                <label><input type="checkbox" class="position-filter checkbox" positionType="0" positionFilter="1">除</label>
+                <label><input type="checkbox" class="position-filter checkbox" positionType="0" positionFilter="0" checked="checked">取</label>
+            </td>
+            <td colspan="2" class="tc">
+                <strong class="red2">配数全转</strong>
+                <label><input type="checkbox" class="position-filter checkbox" positionType="1" positionFilter="1">除</label>
+                <label><input type="checkbox" class="position-filter checkbox" positionType="1" positionFilter="0">取</label>
+            </td>
+        </tr>
+        <tr class="fixed-input tc">
+            <td colspan="4">
+                <div>
+                    仟<input type="text" class="w90" boxNumber="1" name="qian" digits="true" maxlength="10" value="">
+                    佰<input type="text" class="w90" boxNumber="2" name="bai" digits="true" maxlength="10" value="">
+                </div>
+                <div class="mt5">
+                    拾<input type="text" class="w90" boxNumber="3" name="shi" digits="true" maxlength="10" value="">
+                    个<input type="text" class="w90" boxNumber="4" name="ge" digits="true" maxlength="10" value="">
+                </div>
+            </td>
+        </tr>
+        <tr class="match-input hide">
+            <td colspan="4" class="tc">
+                <input type="text" class="w90" boxNumber="1" name="pei1" digits="true" maxlength="10">配,<input type="text" class="w90" boxNumber="2" name="pei2" digits="true" maxlength="10">配,<input type="text" class="w90" boxNumber="3" name="pei3" digits="true" maxlength="10">配,<input type="text" class="w90" boxNumber="4" name="pei4" digits="true" maxlength="10">
+            </td>
+        </tr>
+        <tr class="bg2">
+            <td colspan="4" class="tc">
+                <strong class="red2">合</strong>&nbsp;&nbsp;
+                <strong class="red2">分</strong>
+                <label><input type="checkbox" class="remain-fixed-filter checkbox" remainFixedFilter="1">除</label>
+                <label><input type="checkbox" class="remain-fixed-filter checkbox" remainFixedFilter="0" checked="checked">取</label>
+            </td>
+        </tr>
+        <tr class="tc">
+            <td colspan="4">
+                <div class="remain-fixed-filter-item">
+                    1.
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="text" class="w90" name="he1" digits="true" maxlength="10">
+                </div>
+                <div class="remain-fixed-filter-item mt5">
+                    2.
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="text" class="w90" name="he2" digits="true" maxlength="10">
+                </div>
+                <div class="remain-fixed-filter-item mt5">
+                    3.
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="text" class="w90" name="he3" digits="true" maxlength="10">
+                </div>
+                <div class="remain-fixed-filter-item mt5">
+                    4.
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="checkbox">
+                    <input type="text" class="w90" name="he4" digits="true" maxlength="10">
+                </div>
+            </td>
+        </tr>
+        
+        
+        <tr>
+            <td colspan="4" class="remain-match-filter-item">
+                <strong class="red2">不定位合分</strong>
+                <label><input type="checkbox" class="remain-match-filter checkbox" remainMatchFilter="2">两数合</label>
+                <label><input type="checkbox" class="remain-match-filter checkbox" remainMatchFilter="3">三数合</label>
+                &nbsp;&nbsp;
+                <input type="text" class="w90" name="budinghe" digits="true" maxlength="10">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" class="remain-match-filter-range">
+                <strong class="red2">值 范 围</strong>
+                从
+                <input type="text" class="w30" name="zhifanwei1" digits="true" maxlength="10">值
+                至
+                <input type="text" class="w30" name="zhifanwei2" digits="true" maxlength="10">值
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <strong class="red2">全转</strong> <input type="text" class="transform-filter-item w80" name="quanzhuan" digits="true" maxlength="10">
+                <strong class="red2">上奖</strong> <input type="text" class="upper-filter-item w80" name="shangjiang" digits="true" maxlength="10">
+                <span class="inlineblock">
+                    <strong class="red2">排除</strong> <input type="text" class="except-filter-item w80" name="paichu" digits="true" maxlength="10">
+                </span>
+                <span class="gu-ding-wei-zhi hide">
+                    <strong class="red2">固定位置</strong>
+                    <input disabled type="checkbox" class="fixed-position-item">
+                    <input disabled type="checkbox" class="fixed-position-item">
+                    <input disabled type="checkbox" class="fixed-position-item">
+                    <input disabled type="checkbox" class="fixed-position-item">
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <label><input type="checkbox" class="contain-filter checkbox" containFilter="1">除</label>
+                <label><input type="checkbox" class="contain-filter checkbox" containFilter="0" checked="checked">取</label>
+                <span class="inlineblock">
+                    四字定<strong class="red2">含</strong> <input type="text" class="contain-filter-item w80" name="han" digits="true" maxlength="10">
+                    四字定<strong class="red2">复式</strong> <input type="text" class="multiple-filter-item w90" name="fushi" digits="true" maxlength="10">
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <label><input type="checkbox" class="repeat-two-words-filter checkbox" repeatWordsFilter="1">除</label>
+                <label><input type="checkbox" class="repeat-two-words-filter checkbox" repeatWordsFilter="0">取</label>
+                (<strong class="red2">双重</strong>)
+                <label><input type="checkbox" class="repeat-double-words-filter checkbox" repeatWordsFilter="1">除</label>
+                <label><input type="checkbox" class="repeat-double-words-filter checkbox" repeatWordsFilter="0">取</label>
+                (<strong class="red2">双双重</strong>)
+                <span class="inlineblock">
+                    <label><input type="checkbox" class="repeat-three-words-filter checkbox" repeatWordsFilter="1">除</label>
+                    <label><input type="checkbox" class="repeat-three-words-filter checkbox" repeatWordsFilter="0">取</label>
+                    (<strong class="red2">三重</strong>)
+                    <label><input type="checkbox" class="repeat-four-words-filter checkbox" repeatWordsFilter="1">除</label>
+                    <label><input type="checkbox" class="repeat-four-words-filter checkbox" repeatWordsFilter="0">取</label>
+                    (<strong class="red2">四重</strong>)
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <label><input type="checkbox" class="two-brother-filter checkbox" brotherFilter="1">除</label>
+                <label><input type="checkbox" class="two-brother-filter checkbox" brotherFilter="0">取</label>
+                (<strong class="red2">二兄弟</strong>)
+                <label><input type="checkbox" class="three-brother-filter checkbox" brotherFilter="1">除</label>
+                <label><input type="checkbox" class="three-brother-filter checkbox" brotherFilter="0">取</label>
+                (<strong class="red2">三兄弟</strong>)
+                <span class="inlineblock">
+                    <label><input type="checkbox" class="four-brother-filter checkbox" brotherFilter="1">除</label>
+                    <label><input type="checkbox" class="four-brother-filter checkbox" brotherFilter="0">取</label>
+                    (<strong class="red2">四兄弟</strong>)
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" class="logarithm-number-item">
+                <label><input type="checkbox" class="logarithm-number-filter checkbox" logarithmNumberFilter="1">除</label>
+                <label><input type="checkbox" class="logarithm-number-filter checkbox" logarithmNumberFilter="0">取</label>
+                (<strong class="red2">对数</strong>)
+                <input type="text" class="w60" name="duishu1" pairNumber="true" maxlength="2">
+                <input type="text" class="w60" name="duishu2" pairNumber="true" maxlength="2">
+                <input type="text" class="w60" name="duishu3" pairNumber="true" maxlength="2">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <label><input type="checkbox" class="odd-number-filter checkbox" oddNumberFilter="1">除</label>
+                <label><input type="checkbox" class="odd-number-filter checkbox" oddNumberFilter="0">取</label>
+                (<strong class="red2">单</strong>)
+                <input type="checkbox" class="odd-number-item checkbox">
+                <input type="checkbox" class="odd-number-item checkbox">
+                <input type="checkbox" class="odd-number-item checkbox">
+                <input type="checkbox" class="odd-number-item checkbox">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="inlineblock">
+                    <label><input type="checkbox" class="even-number-filter checkbox" evenNumberFilter="1">除</label>
+                    <label><input type="checkbox" class="even-number-filter checkbox" evenNumberFilter="0">取</label>
+                    (<strong class="red2">双</strong>)
+                    <input type="checkbox" class="even-number-item checkbox">
+                    <input type="checkbox" class="even-number-item checkbox">
+                    <input type="checkbox" class="even-number-item checkbox">
+                    <input type="checkbox" class="even-number-item checkbox">
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+
+                <label><input type="checkbox" class="big-number-filter checkbox"
+                        bignumberfilter="1">除</label>
+                <label><input type="checkbox" class="big-number-filter checkbox"
+                        bignumberfilter="0">取</label>
+                (<strong class="red2">大</strong>)
+                <input type="checkbox" class="big-number-item checkbox">
+                <input type="checkbox" class="big-number-item checkbox">
+                <input type="checkbox" class="big-number-item checkbox">
+                <input type="checkbox" class="big-number-item checkbox">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                <span class="inlineblock">
+                    <label><input type="checkbox" class="small-number-filter checkbox"
+                            smallnumberfilter="1">除</label>
+                    <label><input type="checkbox" class="small-number-filter checkbox"
+                            smallnumberfilter="0">取</label>
+                    (<strong class="red2">小</strong>)
+                    <input type="checkbox" class="small-number-item checkbox">
+                    <input type="checkbox" class="small-number-item checkbox">
+                    <input type="checkbox" class="small-number-item checkbox">
+                    <input type="checkbox" class="small-number-item checkbox">
+                </span>
+
+            </td>
+        </tr>
+    </table>
+</script>
+        <script type="text/html" id="tpl_erx">
+    <table class="t-1">
+        <tr class="bg2">
+            <td class="tc">
+                <strong class="red2">配数</strong>
+                <label><input type="checkbox" class="position-filter checkbox" positionType="1" positionFilter="1">除</label>
+                <label><input type="checkbox" class="position-filter checkbox" positionType="1" positionFilter="0" checked="checked">取</label>
+            </td>
+        </tr>
+        <tr class="match-input">
+            <td colspan="4" class="tc">
+                <input type="text" class="w90" boxNumber="1" name="pei1" digits="true" maxlength="10">配,<input type="text" class="w90" boxNumber="2" name="pei2" digits="true" maxlength="10">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" class="remain-match-filter-item">
+                <strong class="red2">不定位合分</strong>
+                <label><input type="checkbox" class="remain-match-filter checkbox" remainMatchFilter="2">两数合</label>
+                &nbsp;&nbsp;
+                <input type="text" class="w90" name="budinghe" digits="true" maxlength="10">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label><input type="checkbox" class="contain-filter checkbox" containFilter="1">除</label>
+                <label><input type="checkbox" class="contain-filter checkbox" containFilter="0" checked="checked">取</label>
+                二字现<strong class="red2">含</strong> <input type="text" class="contain-filter-item w80" name="han" digits="true" maxlength="10">
+                <span class="inlineblock">
+                    二字现<strong class="red2">复式</strong> <input type="text" class="multiple-filter-item w90" name="fushi" digits="true" maxlength="10">
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label><input type="checkbox" class="repeat-two-words-filter checkbox" repeatWordsFilter="1">除</label>
+                <label><input type="checkbox" class="repeat-two-words-filter checkbox" repeatWordsFilter="0">取</label>
+                (<strong class="red2">双重</strong>)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <label><input type="checkbox" class="two-brother-filter checkbox" brotherFilter="1">除</label>
+                <label><input type="checkbox" class="two-brother-filter checkbox" brotherFilter="0">取</label>
+                (<strong class="red2">二兄弟</strong>)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" class="logarithm-number-item">
+                <label><input type="checkbox" class="logarithm-number-filter checkbox" logarithmNumberFilter="1">除</label>
+                <label><input type="checkbox" class="logarithm-number-filter checkbox" logarithmNumberFilter="0">取</label>
+                (<strong class="red2">对数</strong>)
+                <input type="text" class="w60" name="duishu1" pairNumber="true" maxlength="2">
+                <input type="text" class="w60" name="duishu2" pairNumber="true" maxlength="2">
+                <input type="text" class="w60" name="duishu3" pairNumber="true" maxlength="2">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <label><input type="checkbox" class="odd-number-filter checkbox" oddNumberFilter="1">除</label>
+                <label><input type="checkbox" class="odd-number-filter checkbox" oddNumberFilter="0">取</label>
+                (<strong class="red2">单</strong>)
+                <input type="checkbox" class="odd-number-item checkbox">
+                <input type="checkbox" class="odd-number-item checkbox">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="inlineblock">
+                    <label><input type="checkbox" class="even-number-filter checkbox" evenNumberFilter="1">除</label>
+                    <label><input type="checkbox" class="even-number-filter checkbox" evenNumberFilter="0">取</label>
+                    (<strong class="red2">双</strong>)
+                    <input type="checkbox" class="even-number-item checkbox">
+                    <input type="checkbox" class="even-number-item checkbox">
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+
+                <label><input type="checkbox" class="big-number-filter checkbox"
+                        bignumberfilter="1">除</label>
+                <label><input type="checkbox" class="big-number-filter checkbox"
+                        bignumberfilter="0">取</label>
+                (<strong class="red2">大</strong>)
+                <input type="checkbox" class="big-number-item checkbox">
+                <input type="checkbox" class="big-number-item checkbox">
+                <!-- <input style="display: hidden;"  type="checkbox" class="big-number-item checkbox"> -->
+                <!-- <input style="display: hidden;" type="checkbox" class="big-number-item checkbox"> -->
+                &nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                <span class="inlineblock">
+                    <label><input type="checkbox" class="small-number-filter checkbox"
+                            smallnumberfilter="1">除</label>
+                    <label><input type="checkbox" class="small-number-filter checkbox"
+                            smallnumberfilter="0">取</label>
+                    (<strong class="red2">小</strong>)
+                    <input type="checkbox" class="small-number-item checkbox">
+                    <input type="checkbox" class="small-number-item checkbox">
+                    <!-- <input type="checkbox" class="small-number-item checkbox"> -->
+                    <!-- <input type="checkbox" class="small-number-item checkbox"> -->
+                </span>
+
+            </td>
+        </tr>
+    </table>
+</script>
+        <script type="text/html" id="tpl_sanx">
+    <table class="t-1">
+        <tr class="bg2">
+            <td class="tc">
+                <strong class="red2">配数</strong>
+                <label><input type="checkbox" class="position-filter checkbox" positionType="1" positionFilter="1">除</label>
+                <label><input type="checkbox" class="position-filter checkbox" positionType="1" positionFilter="0" checked="checked">取</label>
+            </td>
+        </tr>
+        <tr class="match-input">
+            <td colspan="4" class="tc">
+                <input type="text" class="w90" boxNumber="1" name="pei1" digits="true" maxlength="10">配,<input type="text" class="w90" boxNumber="2" name="pei2" digits="true" maxlength="10">配,<input type="text" class="w90" boxNumber="3" name="pei3" digits="true" maxlength="10">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" class="remain-match-filter-item">
+                <strong class="red2">不定位合分</strong>
+                <label><input type="checkbox" class="remain-match-filter checkbox" remainMatchFilter="2">两数合</label>
+                <label><input type="checkbox" class="remain-match-filter checkbox" remainMatchFilter="3">三数合</label>
+                &nbsp;&nbsp;
+                <input type="text" class="w90" name="budinghe" digits="true" maxlength="10">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label><input type="checkbox" class="contain-filter checkbox" containFilter="1">除</label>
+                <label><input type="checkbox" class="contain-filter checkbox" containFilter="0" checked="checked">取</label>
+                三字现<strong class="red2">含</strong> <input type="text" class="contain-filter-item w80" name="han" digits="true" maxlength="10">
+                <span class="inlineblock">
+                    三字现<strong class="red2">复式</strong> <input type="text" class="multiple-filter-item w90" name="fushi" digits="true" maxlength="10">
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label><input type="checkbox" class="repeat-two-words-filter checkbox" repeatWordsFilter="1">除</label>
+                <label><input type="checkbox" class="repeat-two-words-filter checkbox" repeatWordsFilter="0">取</label>
+                (<strong class="red2">双重</strong>)
+                <label><input type="checkbox" class="repeat-three-words-filter checkbox" repeatWordsFilter="1">除</label>
+                <label><input type="checkbox" class="repeat-three-words-filter checkbox" repeatWordsFilter="0">取</label>
+                (<strong class="red2">三重</strong>)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <label><input type="checkbox" class="two-brother-filter checkbox" brotherFilter="1">除</label>
+                <label><input type="checkbox" class="two-brother-filter checkbox" brotherFilter="0">取</label>
+                (<strong class="red2">二兄弟</strong>)
+                <label><input type="checkbox" class="three-brother-filter checkbox" brotherFilter="1">除</label>
+                <label><input type="checkbox" class="three-brother-filter checkbox" brotherFilter="0">取</label>
+                (<strong class="red2">三兄弟</strong>)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" class="logarithm-number-item">
+                <label><input type="checkbox" class="logarithm-number-filter checkbox" logarithmNumberFilter="1">除</label>
+                <label><input type="checkbox" class="logarithm-number-filter checkbox" logarithmNumberFilter="0">取</label>
+                (<strong class="red2">对数</strong>)
+                <input type="text" class="w60" name="duishu1" pairNumber="true" maxlength="2">
+                <input type="text" class="w60" name="duishu2" pairNumber="true" maxlength="2">
+                <input type="text" class="w60" name="duishu3" pairNumber="true" maxlength="2">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <label><input type="checkbox" class="odd-number-filter checkbox" oddNumberFilter="1">除</label>
+                <label><input type="checkbox" class="odd-number-filter checkbox" oddNumberFilter="0">取</label>
+                (<strong class="red2">单</strong>)
+                <input type="checkbox" class="odd-number-item checkbox">
+                <input type="checkbox" class="odd-number-item checkbox">
+                <input type="checkbox" class="odd-number-item checkbox">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="inlineblock">
+                    <label><input type="checkbox" class="even-number-filter checkbox" evenNumberFilter="1">除</label>
+                    <label><input type="checkbox" class="even-number-filter checkbox" evenNumberFilter="0">取</label>
+                    (<strong class="red2">双</strong>)
+                    <input type="checkbox" class="even-number-item checkbox">
+                    <input type="checkbox" class="even-number-item checkbox">
+                    <input type="checkbox" class="even-number-item checkbox">
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+
+                <label><input type="checkbox" class="big-number-filter checkbox"
+                        bignumberfilter="1">除</label>
+                <label><input type="checkbox" class="big-number-filter checkbox"
+                        bignumberfilter="0">取</label>
+                (<strong class="red2">大</strong>)
+                <input type="checkbox" class="big-number-item checkbox">
+                <input type="checkbox" class="big-number-item checkbox">
+                <input type="checkbox" class="big-number-item checkbox">
+                <!-- <input type="checkbox" class="big-number-item checkbox"> -->
+                &nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                <span class="inlineblock">
+                    <label><input type="checkbox" class="small-number-filter checkbox"
+                            smallnumberfilter="1">除</label>
+                    <label><input type="checkbox" class="small-number-filter checkbox"
+                            smallnumberfilter="0">取</label>
+                    (<strong class="red2">小</strong>)
+                    <input type="checkbox" class="small-number-item checkbox">
+                    <input type="checkbox" class="small-number-item checkbox">
+                    <input type="checkbox" class="small-number-item checkbox">
+                    <!-- <input type="checkbox" class="small-number-item checkbox"> -->
+                </span>
+
+            </td>
+        </tr>
+    </table>
+</script>
+        <script type="text/html" id="tpl_six">
+    <table class="t-1">
+        <tr class="bg2">
+            <td class="tc">
+                <strong class="red2">配数</strong>
+                <label><input type="checkbox" class="position-filter checkbox" positionType="1" positionFilter="1">除</label>
+                <label><input type="checkbox" class="position-filter checkbox" positionType="1" positionFilter="0" checked="checked">取</label>
+            </td>
+        </tr>
+        <tr class="match-input">
+            <td colspan="4" class="tc">
+                <input type="text" class="w90" boxNumber="1" name="pei1" digits="true" maxlength="10">配,<input type="text" class="w90" boxNumber="2" name="pei2" digits="true" maxlength="10">配,<input type="text" class="w90" boxNumber="3" name="pei3" digits="true" maxlength="10">
+                <span class="inlineblock">
+                    配,<input type="text" class="w90" boxNumber="4" name="pei4" digits="true" maxlength="10">
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" class="remain-match-filter-item">
+                <strong class="red2">不定位合分</strong>
+                <label><input type="checkbox" class="remain-match-filter checkbox" remainMatchFilter="2">两数合</label>
+                <label><input type="checkbox" class="remain-match-filter checkbox" remainMatchFilter="3">三数合</label>
+                &nbsp;&nbsp;
+                <input type="text" class="w90" name="budinghe" digits="true" maxlength="10">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label><input type="checkbox" class="contain-filter checkbox" containFilter="1">除</label>
+                <label><input type="checkbox" class="contain-filter checkbox" containFilter="0" checked="checked">取</label>
+                四字现<strong class="red2">含</strong> <input type="text" class="contain-filter-item w80" name="han" digits="true" maxlength="10">
+                <span class="inlineblock">
+                    四字现<strong class="red2">复式</strong> <input type="text" class="multiple-filter-item w90" name="fushi" digits="true" maxlength="10">
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label><input type="checkbox" class="repeat-two-words-filter checkbox" repeatWordsFilter="1">除</label>
+                <label><input type="checkbox" class="repeat-two-words-filter checkbox" repeatWordsFilter="0">取</label>
+                (<strong class="red2">双重</strong>)
+                <label><input type="checkbox" class="repeat-three-words-filter checkbox" repeatWordsFilter="1">除</label>
+                <label><input type="checkbox" class="repeat-three-words-filter checkbox" repeatWordsFilter="0">取</label>
+                (<strong class="red2">三重</strong>)
+                <label><input type="checkbox" class="repeat-four-words-filter checkbox" repeatWordsFilter="1">除</label>
+                <label><input type="checkbox" class="repeat-four-words-filter checkbox" repeatWordsFilter="0">取</label>
+                (<strong class="red2">四重</strong>)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <label><input type="checkbox" class="two-brother-filter checkbox" brotherFilter="1">除</label>
+                <label><input type="checkbox" class="two-brother-filter checkbox" brotherFilter="0">取</label>
+                (<strong class="red2">二兄弟</strong>)
+                <label><input type="checkbox" class="three-brother-filter checkbox" brotherFilter="1">除</label>
+                <label><input type="checkbox" class="three-brother-filter checkbox" brotherFilter="0">取</label>
+                (<strong class="red2">三兄弟</strong>)
+                <label><input type="checkbox" class="four-brother-filter checkbox" brotherFilter="1">除</label>
+                <label><input type="checkbox" class="four-brother-filter checkbox" brotherFilter="0">取</label>
+                (<strong class="red2">四兄弟</strong>)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4" class="logarithm-number-item">
+                <label><input type="checkbox" class="logarithm-number-filter checkbox" logarithmNumberFilter="1">除</label>
+                <label><input type="checkbox" class="logarithm-number-filter checkbox" logarithmNumberFilter="0">取</label>
+                <span class="inlineblock">
+                    (<strong class="red2">对数</strong>)
+                    <input type="text" class="w60" name="duishu1" pairNumber="true" maxlength="2">
+                    <input type="text" class="w60" name="duishu2" pairNumber="true" maxlength="2">
+                    <input type="text" class="w60" name="duishu3" pairNumber="true" maxlength="2">
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+                <label><input type="checkbox" class="odd-number-filter checkbox" oddNumberFilter="1">除</label>
+                <label><input type="checkbox" class="odd-number-filter checkbox" oddNumberFilter="0">取</label>
+                (<strong class="red2">单</strong>)
+                <input type="checkbox" class="odd-number-item checkbox">
+                <input type="checkbox" class="odd-number-item checkbox">
+                <input type="checkbox" class="odd-number-item checkbox">
+                <input type="checkbox" class="odd-number-item checkbox">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <span class="inlineblock">
+                    <label><input type="checkbox" class="even-number-filter checkbox" evenNumberFilter="1">除</label>
+                    <label><input type="checkbox" class="even-number-filter checkbox" evenNumberFilter="0">取</label>
+                    (<strong class="red2">双</strong>)
+                    <input type="checkbox" class="even-number-item checkbox">
+                    <input type="checkbox" class="even-number-item checkbox">
+                    <input type="checkbox" class="even-number-item checkbox">
+                    <input type="checkbox" class="even-number-item checkbox">
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="4">
+
+                <label><input type="checkbox" class="big-number-filter checkbox"
+                        bignumberfilter="1">除</label>
+                <label><input type="checkbox" class="big-number-filter checkbox"
+                        bignumberfilter="0">取</label>
+                (<strong class="red2">大</strong>)
+                <input type="checkbox" class="big-number-item checkbox">
+                <input type="checkbox" class="big-number-item checkbox">
+                <input type="checkbox" class="big-number-item checkbox">
+                <input type="checkbox" class="big-number-item checkbox">
+                &nbsp;&nbsp;&nbsp;&nbsp;
+
+
+                <span class="inlineblock">
+                    <label><input type="checkbox" class="small-number-filter checkbox"
+                            smallnumberfilter="1">除</label>
+                    <label><input type="checkbox" class="small-number-filter checkbox"
+                            smallnumberfilter="0">取</label>
+                    (<strong class="red2">小</strong>)
+                    <input type="checkbox" class="small-number-item checkbox">
+                    <input type="checkbox" class="small-number-item checkbox">
+                    <input type="checkbox" class="small-number-item checkbox">
+                    <input type="checkbox" class="small-number-item checkbox">
+                </span>
+
+            </td>
+        </tr>
+    </table>
+</script>
+        <script type="text/html" id="tpl_fifteen">
+        <table class="t-1">
+            <tr class="bg2">
+                <td class="tc" colspan="2">
+                    <strong class="red2">定位置</strong>
+                    <label><input type="checkbox" class="position-filter checkbox" positionType="0" positionFilter="1">除</label>
+                    <label><input type="checkbox" class="position-filter checkbox" positionType="0" positionFilter="0" checked="checked">取</label>
+                </td>
+                <td class="tc" colspan="2">
+                    <strong class="red2">配数全转</strong>
+                    <label><input type="checkbox" class="position-filter checkbox" positionType="1" positionFilter="1">除</label>
+                    <label><input type="checkbox" class="position-filter checkbox" positionType="1" positionFilter="0">取</label>
+                </td>
+            </tr>
+            <tr class="fixed-input">
+                <td class="tc"  colspan="2">
+                    仟<input type="text" boxNumber="1" class="w90" digits="true" maxlength="10">
+                </td>
+                <td class="tc" colspan="2">
+                    佰<input type="text" boxNumber="2" class="w90" digits="true" maxlength="10">
+                </td>
+            </tr>
+            <tr class="fixed-input">
+                <td class="tc" colspan="2">
+                    拾<input type="text" boxNumber="3" class="w90" digits="true" maxlength="10">
+                </td>
+                <td class="tc" colspan="2">
+                    个<input type="text" boxNumber="4" class="w90" digits="true" maxlength="10">
+                </td>
+            </tr>
+            <tr class="fixed-input">
+                <td class="tc" colspan="2">
+                    五<input type="text" boxNumber="5" class="w90" digits="true" maxlength="10">
+                </td>
+            </tr>
+            <tr class="match-input hide">
+                <td class="tc" colspan="4">
+                    <input type="text" class="w90" boxNumber="4" digits="true" maxlength="10">&nbsp;配&nbsp;<input type="text" class="w90" boxNumber="5" digits="true" maxlength="10">
+                </td>
+            </tr>
+            <tr class="bg2">
+                <td class="tc" colspan="4">
+                    <strong class="red2">合</strong>&nbsp;&nbsp;
+                    <strong class="red2">分</strong>&nbsp;&nbsp;
+                    <label><input type="checkbox" class="checkbox remain-fixed-filter" remainfixedfilter="1">除</label>
+                    <label><input type="checkbox" class="checkbox remain-fixed-filter" remainfixedfilter="0" checked="checked">取</label>
+                </td>
+            </tr>
+            <tr>
+                <td class="tc remain-fixed-filter-item"  colspan="4">
+                    1.
+                    <input type="checkbox" class="checkbox" />
+                    <input type="checkbox" class="checkbox hide" />
+                    <input type="checkbox" class="checkbox hide" />
+                    <input type="checkbox" class="checkbox hide" />
+                    XXX
+                    <input type="checkbox" class="checkbox" />
+                    <input type="text" name="he3" class="w90" digits="true" maxlength="10">
+                </td>
+                </tr>
+            <tr>
+                <td class="tc remain-fixed-filter-item" colspan="4">
+                    2.
+                    <input type="checkbox" class="checkbox hide" />
+                    X
+                    <input type="checkbox" class="checkbox" />
+                    <input type="checkbox" class="checkbox hide" />
+                    <input type="checkbox" class="checkbox hide" />
+                    XX
+                    <input type="checkbox" class="checkbox" />
+                    <input type="text" name="he4" class="w90" digits="true" maxlength="10">
+                 </td>
+                </tr>
+            <tr>
+                <td class="tc remain-fixed-filter-item"  colspan="4">
+                    3.
+                    <input type="checkbox" class="checkbox hide" />
+                    <input type="checkbox" class="checkbox hide" />
+                    XX
+                    <input type="checkbox" class="checkbox" />
+                    <input type="checkbox" class="checkbox hide" />
+                    X
+                    <input type="checkbox" class="checkbox" />
+                    <input type="text" name="he4" class="w90" digits="true" maxlength="10">
+                </td>
+            </tr>
+            <tr>
+                <td class="tc remain-fixed-filter-item"  colspan="4">
+                    4. XXX
+                    <input type="checkbox" class="checkbox hide" />
+                    <input type="checkbox" class="checkbox hide" />
+                    <input type="checkbox" class="checkbox hide" />
+                    <input type="checkbox" class="checkbox" />
+                    <input type="checkbox" class="checkbox" />
+                    <input type="text" name="he4" class="w90" digits="true" maxlength="10">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5" class="remain-match-filter-item">
+                    <strong class="red2">不定位合分</strong>
+                    <label><input type="checkbox" remainMatchFilter="2" class="remain-match-filter checkbox">两数合</label>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="text" class="w90" name="budinghe" digits="true" maxlength="10">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    <strong class="red2">全转</strong> <input type="text" class="transform-filter-item w80" name="quanzhuan" digits="true" maxlength="10">
+                    <strong class="red2">上奖</strong> <input type="text" class="upper-filter-item w80" name="shangjiang" digits="true" maxlength="10">
+                    <strong class="red2">排除</strong> <input type="text" class="except-filter-item w80" name="paichu" digits="true" maxlength="10">
+                    <strong class="red2">乘号位置</strong>
+                    <input disabled type="checkbox" class="symbol-filter-item">
+                    <input disabled type="checkbox" class="symbol-filter-item">
+                    <input disabled type="checkbox" class="symbol-filter-item">
+                    <input disabled type="checkbox" class="symbol-filter-item">
+                    <input disabled type="checkbox" class="symbol-filter-item">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    <label><input type="checkbox" class="contain-filter checkbox" containFilter="1">除</label>
+                    <label><input type="checkbox" class="contain-filter checkbox" containFilter="0" checked>取</label>
+                    五位二定含 <input type="text" class="contain-filter-item  w80" name="han" digits="true" maxlength="10">
+                    五位二定复式 <input type="text" class="multiple-filter-item  w80" name="fushi" digits="true" maxlength="10">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    <label><input type="checkbox" class="repeat-two-words-filter checkbox" repeatWordsFilter="1">除</label>
+                    <label><input type="checkbox" class="repeat-two-words-filter checkbox" repeatWordsFilter="0">取</label>
+                    (<strong class="red2">双重</strong>)
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    <label><input type="checkbox" class="two-brother-filter checkbox" brotherFilter="1">除</label>
+                    <label><input type="checkbox" class="two-brother-filter checkbox" brotherFilter="0">取</label>
+                    (<strong class="red2">二兄弟</strong>)
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5" class="logarithm-number-item">
+                    <label><input type="checkbox" class="logarithm-number-filter checkbox" logarithmNumberFilter="1">除</label>
+                    <label><input type="checkbox" class="logarithm-number-filter checkbox" logarithmNumberFilter="0">取</label>
+                    (<strong class="red2">对数</strong>)
+                    <input type="text" class="w60" name="duishu1" pairNumber="true" maxlength="2">
+                    <input type="text" class="w60" name="duishu2" pairNumber="true" maxlength="2">
+                    <input type="text" class="w60" name="duishu3" pairNumber="true" maxlength="2">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    <label><input type="checkbox" class="odd-number-filter checkbox" oddNumberFilter="1">除</label>
+                    <label><input type="checkbox" class="odd-number-filter checkbox" oddNumberFilter="0">取</label>
+                    (<strong class="red2">单</strong>)
+                    <input type="checkbox" class="odd-number-item checkbox">
+                    <input type="checkbox" class="odd-number-item checkbox">
+                    <input type="checkbox" class="odd-number-item checkbox">
+                    <input type="checkbox" class="odd-number-item checkbox">
+                    <input type="checkbox" class="odd-number-item checkbox">
+                    <br />
+                    <label><input type="checkbox" class="even-number-filter checkbox" evenNumberFilter="1">除</label>
+                    <label><input type="checkbox" class="even-number-filter checkbox" evenNumberFilter="0">取</label>
+                    (<strong class="red2">双</strong>)
+                    <input type="checkbox" class="even-number-item checkbox">
+                    <input type="checkbox" class="even-number-item checkbox">
+                    <input type="checkbox" class="even-number-item checkbox">
+                    <input type="checkbox" class="even-number-item checkbox">
+                    <input type="checkbox" class="even-number-item checkbox">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5">
+
+                    <label><input type="checkbox" class="big-number-filter checkbox"
+                            bignumberfilter="1">除</label>
+                    <label><input type="checkbox" class="big-number-filter checkbox"
+                            bignumberfilter="0">取</label>
+                    (<strong class="red2">大</strong>)
+                    <input type="checkbox" class="big-number-item checkbox">
+                    <input type="checkbox" class="big-number-item checkbox">
+                    <input type="checkbox" class="big-number-item checkbox">
+                    <input type="checkbox" class="big-number-item checkbox">
+                    <input type="checkbox" class="big-number-item checkbox">
+                    
+
+
+                    <br />
+                    <label><input type="checkbox" class="small-number-filter checkbox"
+                            smallnumberfilter="1">除</label>
+                    <label><input type="checkbox" class="small-number-filter checkbox"
+                            smallnumberfilter="0">取</label>
+                    (<strong class="red2">小</strong>)
+                    <input type="checkbox" class="small-number-item checkbox">
+                    <input type="checkbox" class="small-number-item checkbox">
+                    <input type="checkbox" class="small-number-item checkbox">
+                    <input type="checkbox" class="small-number-item checkbox">
+                    <input type="checkbox" class="small-number-item checkbox">
+                  
+
+                </td>
+            </tr>
+        </table>
+    </script>
+        <script type="text/html" id="tpl_number">
+    {{if Data && Data.length >0}}
+    {{each Data as item i}}
+    {{if i % 7 == 0}}
+    <tr>
+    {{/if}}
+    <td width="14.28%">{{item}}</td>
+    {{/each}}
+    {{else}}
+    <tr><td>没有这样的号码</td></tr>
+    {{/if}}
+    
+</script>
+    </div>
+    <script type="text/html" id="tpl_user">
+            <span class="white">
+                <span class="f2r yellow">幸运五</span>
+                <br />
+                {{Data.period_no}}期
+                &nbsp;&nbsp;
+                账号:{{Data.member_account}}
+                &nbsp;&nbsp;
+                可用:{{if Data.credit_balance}}{{Data.credit_balance.toFixed1(1)}}{{/if}}
+            </span>
+</script>
+<script type="text/javascript" charset="UTF-8" src="./all.js"></script><div class="mask hide"><iframe class="ifr-fix-ie6" frameborder="0" src="./saved_resource.html"></iframe></div>
+<script type="text/javascript" charset="UTF-8" src="./selectMy.js"></script>
+<div class="mask hide"></div>
+<script>
+    function open(periods, money, u) {
+        localStorage.setItem("uuid", u);
+        $("#currentPeriod").html(periods);
+        $("#leftMoney").html(money);
+        $("#uuid").val(u);
+    }
+</script>
+
+
+</body></html>

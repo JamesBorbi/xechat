@@ -120,5 +120,4 @@ public class XeChatController {
         // 将消息发送到所有用户
         messageService.sendMessage(StompConstant.SUB_CHAT_ROOM, revokeMsgVo);
     }
-
 }
